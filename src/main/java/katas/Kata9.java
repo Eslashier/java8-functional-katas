@@ -27,7 +27,10 @@ public class Kata9 {
                 .map(video -> Map.of(
                         "id", video.getId(),
                         "title", video.getTitle(),
-                        "time", new Date(),
+                        "time", video.getInterestingMoments()
+                                .stream()
+                                .filter(a -> a.getTime().equals("Middle"))
+                                .collect(Collectors.toList()),
                         "url" , video.getBoxarts()
                                 .stream()
                                 .reduce((a, b)-> a.getWidth() * b.getHeight() > b.getWidth() * b.getHeight() ? b : a)
