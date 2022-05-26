@@ -20,7 +20,9 @@ public class Kata1 {
         List<Movie> movies = DataUtil.getMovies();
 
         return  movies.stream()
-                .map((movie -> Map.of("id", movie.getId(), "title", movie.getTitle())))
+                .map((movie -> Map.of(
+                        "id", movie.getId(),
+                        "title", movie.getTitle())))
                 .collect(toUnmodifiableList());
     }
 }
